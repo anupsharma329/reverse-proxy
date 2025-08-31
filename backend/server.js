@@ -5,6 +5,11 @@ var cors = require("cors");
 
 app.use(cors());
 
+// Root health endpoint for Kubernetes probes
+app.get("/health", (req, res) => {
+  res.status(200).send("OK");
+});
+
 app.get("/api/data", (req, res) => {
   res.json({ message: "Hello from backend! (no DB)" });
 });
